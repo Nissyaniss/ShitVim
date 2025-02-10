@@ -30,10 +30,10 @@ vim.api.nvim_create_autocmd({ "VimEnter" },
 
 		if hasToOpenTree == true
 		then
-			if vim.v.argv[3] ~= "."
+			if vim.v.argv[3] ~= "." and vim.v.argv[3] == ""
 			then
 				local api = require("nvim-tree.api")
-				api.tree.toggle({path = "<args>", focus = false})
+				api.tree.toggle({path = vim.v.argv[3], focus = false})
 			end
 		end
 	end
